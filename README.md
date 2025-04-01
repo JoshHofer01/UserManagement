@@ -36,11 +36,9 @@ Start the application using:
 dotnet run
 ```
 
-The API will be available at `https://localhost:5001` (or `http://localhost:5000`).
-
 ### 4. Access Swagger UI
 
-Navigate to `https://localhost:5001/swagger` to view the API documentation and test endpoints.
+Navigate to `UserManagementAPI_HostAddress/swagger` to view the API documentation and test endpoints.
 
 ## API Endpoints
 
