@@ -1,0 +1,157 @@
+@UserManagementAPI_HostAddress = http://localhost:5222
+
+### GET: Retrieve all users with a limit
+GET {{UserManagementAPI_HostAddress}}/api/User?limit=1
+Accept: application/json
+
+###
+
+### GET: Retrieve all users without a limit (default limit applies)
+GET {{UserManagementAPI_HostAddress}}/api/User
+Accept: application/json
+
+###
+
+### GET: Retrieve a specific user by ID (valid ID)
+GET {{UserManagementAPI_HostAddress}}/api/User/1
+Accept: application/json
+
+###
+
+### GET: Retrieve a specific user by ID (invalid ID)
+GET {{UserManagementAPI_HostAddress}}/api/User/999
+Accept: application/json
+
+###
+
+### POST: Add a new user (valid data)
+POST {{UserManagementAPI_HostAddress}}/api/User
+Content-Type: application/json
+
+{
+  "name": "Alice Johnson",
+  "email": "alice.johnson@example.com"
+}
+
+###
+
+### POST: Add a new user (invalid data - missing name)
+POST {{UserManagementAPI_HostAddress}}/api/User
+Content-Type: application/json
+
+{
+  "email": "invalid.user@example.com"
+}
+
+###
+
+### POST: Add a new user (invalid data - invalid email)
+POST {{UserManagementAPI_HostAddress}}/api/User
+Content-Type: application/json
+
+{
+  "name": "Invalid User",
+  "email": "not-an-email"
+}
+
+###
+
+### PUT: Update an existing user's details (valid data)
+PUT {{UserManagementAPI_HostAddress}}/api/User/1
+Content-Type: application/json
+
+{
+  "name": "John Updated",
+  "email": "john.updated@example.com"
+}
+
+###
+
+### PUT: Update an existing user's details (invalid ID)
+PUT {{UserManagementAPI_HostAddress}}/api/User/999
+Content-Type: application/json
+
+{
+  "name": "Nonexistent User",
+  "email": "nonexistent.user@example.com"
+}
+
+###
+
+### PUT: Update an existing user's details (invalid data - missing name)
+PUT {{UserManagementAPI_HostAddress}}/api/User/1
+Content-Type: application/json
+
+{
+  "email": "missing.name@example.com"
+}
+
+###
+
+### DELETE: Remove a user by ID (valid ID)
+DELETE {{UserManagementAPI_HostAddress}}/api/User/1
+Accept: application/json
+
+###
+
+### DELETE: Remove a user by ID (invalid ID)
+DELETE {{UserManagementAPI_HostAddress}}/api/User/999
+Accept: application/json
+
+###
+
+### GET: Retrieve all users with a custom limit (e.g., 5)
+GET {{UserManagementAPI_HostAddress}}/api/User?limit=5
+Accept: application/json
+
+###
+
+### POST: Add a new user (valid data with edge case - long name)
+POST {{UserManagementAPI_HostAddress}}/api/User
+Content-Type: application/json
+
+{
+  "name": "A very long name that exceeds the usual length but is still valid",
+  "email": "long.name@example.com"
+}
+
+###
+
+### PUT: Update an existing user's details (valid data with edge case - empty email)
+PUT {{UserManagementAPI_HostAddress}}/api/User/1
+Content-Type: application/json
+
+{
+  "name": "John Updated Again",
+  "email": ""
+}
+
+###
+
+### DELETE: Remove a user by ID (edge case - non-integer ID)
+DELETE {{UserManagementAPI_HostAddress}}/api/User/abc
+Accept: application/json
+
+###
+
+### DELETE: Remove a user by ID (edge case - negative ID)
+DELETE {{UserManagementAPI_HostAddress}}/api/User/-1
+Accept: application/json
+
+###
+
+### GET: Retrieve all users with a valid API key
+GET {{UserManagementAPI_HostAddress}}/api/User?apiKey=TestKey123
+Accept: application/json
+
+###
+
+### GET: Retrieve all users without an API key
+GET {{UserManagementAPI_HostAddress}}/api/User
+Accept: application/json
+
+###
+
+### GET: Retrieve all users with an invalid API key
+GET {{UserManagementAPI_HostAddress}}/api/User?apiKey=InvalidKey
+Accept: application/json
