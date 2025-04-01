@@ -11,12 +11,6 @@ This project was created for the Microsoft Back-End Developer course on Coursera
 - **Error Handling**: Provides meaningful error responses for invalid requests or server errors.
 - **Swagger Integration**: API documentation and testing via Swagger UI.
 
-## Prerequisites
-
-- [.NET 6 SDK](https://dotnet.microsoft.com/download/dotnet/6.0) or later
-- [Visual Studio](https://visualstudio.microsoft.com/) or [VS Code](https://code.visualstudio.com/)
-- Optional: [Postman](https://www.postman.com/) for API testing
-
 ## Getting Started
 
 ### 1. Clone the Repository
